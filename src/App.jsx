@@ -6,6 +6,8 @@ import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { Contact } from "./components/Contact";
+import { TwitterClone } from "./components/TwitterClone";
+import { LibraryMS } from "./components/LibraryMS";
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -17,32 +19,34 @@ const observer = new IntersectionObserver((entries) => {
   });
 });
 
-const links = document.querySelectorAll(".header-item");
-
-if (links.length) {
-  links.forEach((link) => {
-    link.addEventListener("click", (e) => {
-      links.forEach((link) => {
-        link.classList.remove("active");
-      });
-      e.preventDefault();
-      link.classList.add("active");
-    });
-  });
-}
-
 const hiddenElements = document.querySelectorAll(".not-shown");
 hiddenElements.forEach((el) => observer.observe(el));
 
 function App() {
-  const [twitterOpen, setTwitterOpen] = useState(false);
-  const handleTwitterClick = () => {
-    setTwitterOpen((prevState) => !prevState);
+  const [projectOpen, setProjectOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState("");
+  const handleProjectClick = (project) => {
+    setProjectOpen((prevState) => !prevState);
+    setCurrentProject(project);
+    if (projectOpen) {
+      window.scroll({
+        top: 1600,
+        left: 100,
+        behavior: "smooth",
+      });
+    } else {
+      window.scroll({
+        top: 0,
+        left: 100,
+        behavior: "smooth",
+      });
+    }
+    console.log(projectOpen);
   };
 
   return (
     <div>
-      {!twitterOpen && (
+      {!projectOpen && (
         <>
           <section>
             <div className="h-[100vh] w-[100vw] flex justify-center bg-gradient-to-t from-slate-700 to-gray-800 ">
@@ -80,7 +84,7 @@ function App() {
           <Nav />
           <div className="w-[100vw] text-slate-800">
             <About />
-            <Projects handleTwitterClick={handleTwitterClick} />
+            <Projects handleProjectClick={handleProjectClick} />
 
             <section>
               <h2 className="header">BLOG</h2>
@@ -90,11 +94,11 @@ function App() {
           </div>
         </>
       )}
-      {twitterOpen && (
-        <section className="absolute height-[100vh] ">
-          <button onClick={handleTwitterClick}>-</button>
-          <h1>Twitter Clone</h1>
-        </section>
+      {projectOpen && currentProject === "Twitter Clone" && (
+        <TwitterClone handleProjectClick={handleProjectClick} />
+      )}
+      {projectOpen && currentProject === "Library MS" && (
+        <LibraryMS handleProjectClick={handleProjectClick} />
       )}
     </div>
   );

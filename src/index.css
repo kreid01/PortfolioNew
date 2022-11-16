@@ -87,7 +87,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-85%, -60%);
+    transform: translate(-160px, -50px);
     -ms-transform: translate(-100%, -60%);
     text-align: center;
   }

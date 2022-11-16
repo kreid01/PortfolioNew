@@ -1,4 +1,18 @@
 export const Nav = () => {
+  const links = document.querySelectorAll(".header-item");
+
+  if (links.length) {
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        links.forEach((link) => {
+          link.classList.remove("active");
+        });
+        e.preventDefault();
+        link.classList.add("active");
+      });
+    });
+  }
+
   return (
     <header className="w-[100vw] sticky top-0 z-10 bg-slate-700 border-b-4 border-red-500">
       <nav className=" w-[50vw]   text-white">
@@ -29,14 +43,20 @@ export const Nav = () => {
             {" "}
             PROJECTS
           </li>
-          <li className="header-item">
+          <li
+            className="header-item"
+            onClick={() =>
+              window.scroll({
+                top: 4000,
+                left: 100,
+                behavior: "smooth",
+              })
+            }
+          >
             {" "}
-            <a href="#projects">BLOG</a>
+            BLOG
           </li>
-          <li className="header-item">
-            {" "}
-            <a href="#contact">CONTACT</a>
-          </li>
+          <li className="header-item"> CONTACT</li>
         </ul>
       </nav>
     </header>

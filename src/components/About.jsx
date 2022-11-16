@@ -27,7 +27,7 @@ export const About = () => {
   });
 
   return (
-    <section className="mx-auto">
+    <section className="mx-auto ">
       <h2 className="header">ABOUT</h2>
       <div className="py-10 flex justify-center about ">
         <div>
