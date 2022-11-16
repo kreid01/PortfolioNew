@@ -26,7 +26,7 @@ export const Contact = () => {
             value={form.name}
             name="name"
             placeholder="name"
-            className="bg-slate-800 w-[50vw] py-1 px-1 text-slate-300"
+            className="bg-slate-800 w-[70vw]  md:w-[50vw] lg:w-[40vw] py-1 px-1 text-slate-300"
           ></input>
           <input
             onChange={handleChange}
@@ -39,11 +39,14 @@ export const Contact = () => {
           <textarea
             onChange={handleChange}
             value={form.message}
-            className="bg-slate-800 text-slate-300 h-32 mb-10 px-1 resize-none "
+            className="bg-slate-800 text-slate-300 h-32 mb-2 px-1 resize-none "
             type="text"
             placeholder="message"
             name="message"
           ></textarea>
+          <button className="border-2 border-fed-500 w-[20vw] text-white px-4 py-1 ml-auto hover:bg-red-500 hover:border-red-500 transition-all ">
+            Send
+          </button>
         </form>
       </div>
     </section>

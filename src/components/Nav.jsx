@@ -15,10 +15,10 @@ export const Nav = () => {
 
   return (
     <header className="w-[100vw] sticky top-0 z-10 bg-slate-700 border-b-4 border-red-500">
-      <nav className=" w-[50vw]   text-white">
+      <nav className="w-[65vw] md:w-[50vw]   text-white">
         <ul className="flex justify-around py-3">
           <li
-            className="header-item"
+            className="header-item ml-5 md:ml-0"
             onClick={() =>
               window.scroll({
                 top: 920,
@@ -34,7 +34,7 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: 1600,
+                top: 1650,
                 left: 100,
                 behavior: "smooth",
               })

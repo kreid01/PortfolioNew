@@ -16,9 +16,26 @@ export const About = () => {
     "Jest",
     "Tailwind",
     "SASS",
+    "Git",
     "React Query",
+    "Nodejs",
+    "Expressjs",
     "Material UI Core",
   ];
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        console.log("s");
+        entry.target.classList.add("show");
+      }
+    });
+  });
+  setInterval(() => {
+    const hiddenElements = document.querySelectorAll(".not-shown");
+
+    hiddenElements.forEach((el) => observer.observe(el));
+  }, 2000);
 
   const mySkillsDisplayed = mySkills.map((skill) => {
     return (
@@ -27,24 +44,26 @@ export const About = () => {
   });
 
   return (
-    <section className="mx-auto ">
+    <section className="mx-auto md:px-12 lg:px-32 xl:px-64 not-shown">
       <h2 className="header">ABOUT</h2>
-      <div className="py-10 flex justify-center about ">
+      <div className="py-10 flex flex-col md:flex-row justify-center about">
         <div>
           <img
-            className="h-72 w-72 rounded-full"
+            className="h-72 w-72 rounded-full mx-auto"
             src="https://weareformation.com/wp-content/uploads/2021/05/louis-du-mont-herbert-in-cycles-768x768.jpg"
             alt=""
           />
-          <p className="w-[35vw] mt-6 text-center -ml-4">
-            I have been been interested in computers since I was young but only
-            recently discovered a love and passion for solving software problems
-            and creating programmes.
+          <p className="w-[60vw] md:w-[35vw] lg:w-[30vw] mt-6 text-center ml-[20%] md:-ml-4 mb-5">
+            I have been been interested in computers since I was young and have
+            a love and passion for solving software problems and creating
+            programmes.
           </p>
         </div>
         <div>
-          <h3 className="font-bold text-xl">My Skills</h3>
-          <div className="w-[39vw] flex flex-wrap">{mySkillsDisplayed}</div>
+          <h3 className="font-bold text-xl text-center mb-5">My Skills</h3>
+          <div className="md:ml-20 w-[75vw] mx-auto md:w-[43vw] lg:w-[35vw] flex flex-wrap">
+            {mySkillsDisplayed}
+          </div>
         </div>
       </div>
     </section>

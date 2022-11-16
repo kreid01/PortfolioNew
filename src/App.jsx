@@ -8,13 +8,12 @@ import { Footer } from "./components/Footer";
 import { Contact } from "./components/Contact";
 import { TwitterClone } from "./components/TwitterClone";
 import { LibraryMS } from "./components/LibraryMS";
+import { Records } from "./components/Records";
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("show");
-    } else {
-      entry.target.classList.remove("show");
     }
   });
 });
@@ -41,7 +40,6 @@ function App() {
         behavior: "smooth",
       });
     }
-    console.log(projectOpen);
   };
 
   return (
@@ -52,15 +50,15 @@ function App() {
             <div className="h-[100vh] w-[100vw] flex justify-center bg-gradient-to-t from-slate-700 to-gray-800 ">
               <div className="pt-[40vh] text-white">
                 <p>Hi my name is</p>
-                <h2 className="mb-2 font-semibold text-4xl">
+                <h2 className="mb-2 font-semibold  text-2xl md:text-4xl">
                   <span className="text-pink-400">Kieran Reid</span> |{" "}
                   <span className="">Software Engineer</span>
                 </h2>
-                <p className="w-[50vw] text-xl">
+                <p className="w-[50vw] lg:w-[30vw] text-lg md:text-xl">
                   A passionate developer who loves solving problems and creating
                   software.
                 </p>
-                <div className="ml-[20vw] mt-10 ">
+                <div className=" mt-10 grid">
                   <button
                     onClick={() =>
                       window.scroll({
@@ -69,7 +67,7 @@ function App() {
                         behavior: "smooth",
                       })
                     }
-                    className="border-2 px-8 py-4 hover:bg-red-500 hover:border-red-500 transition-all view-work"
+                    className="border-2 px-8 py-4 mx-auto hover:bg-red-500 hover:border-red-500 transition-all view-work"
                   >
                     View my work{" "}
                     <FontAwesomeIcon
@@ -99,6 +97,9 @@ function App() {
       )}
       {projectOpen && currentProject === "Library MS" && (
         <LibraryMS handleProjectClick={handleProjectClick} />
+      )}
+      {projectOpen && currentProject === "Kierans' Records" && (
+        <Records handleProjectClick={handleProjectClick} />
       )}
     </div>
   );

@@ -5,6 +5,7 @@ import twitterHome from "../assets/Twitter/twitter_home.png";
 import twitterSignin from "../assets/Twitter/twitter_sign.png";
 import twitterProfile from "../assets/Twitter/twitter_profile.png";
 import twitterMessaging from "../assets/Twitter/twttter_messagin.png";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { projects } from "./Projects";
 
@@ -16,7 +17,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
   });
 
   return (
-    <section className="height-[100vw] bg-gray-200 ">
+    <section className="height-[100vw] bg-gray-200">
       <header className="flex justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
         <button
           onClick={() => handleProjectClick("")}
@@ -24,9 +25,16 @@ export const TwitterClone = ({ handleProjectClick }) => {
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
+        <a
+          href="https://github.com/kreid01/TwitterCloneFrontend"
+          className="bg-slate-800 shadow-md px-1 py-2 ml-1  hover:bg-red-500 btn-two"
+        >
+          {" "}
+          <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
+        </a>
       </header>
       <h1 className="my-auto header text-3xl  twitter">Twitter Clone</h1>
-      <div className="w-[70vw] mx-auto mt-20">
+      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48">
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to test my abilities and expand my
@@ -36,7 +44,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
         <img
           src={twitterHome}
           alt=""
-          className="h-[67vh] mx-auto my-10 rounded-md shadow-md"
+          className="md:h-[62vh] h-[40vh]  mx-auto my-10 rounded-md shadow-md"
         />
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
@@ -82,7 +90,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
         <img
           src={twitterSignin}
           alt=" "
-          className="my-10 h-[60vh] mx-auto rounded-md shadow-md"
+          className="my-10 md:h-[60vh] h-[40vh] mx-auto rounded-md shadow-md"
         />
         <p className="my-2">
           All posts can be liked, commented or retweeted and if any interaction
@@ -94,7 +102,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
         <img
           src={twitterMessaging}
           alt=""
-          className="my-10 h-[60vh] mx-auto rounded-md shadow-md"
+          className="my-10 md:h-[50vh] h-[40vh] mx-auto rounded-md shadow-md"
         ></img>
         <p className="my-2">
           Infinite scrolls were also implemented for the post timeline where
@@ -110,7 +118,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
           <img
             src={twitterProfile}
             alt=""
-            className="h-[70vh] rounded-md shadow-md mx-auto my-10"
+            className="md:h-[65vh] h-[40vh] rounded-md shadow-md mx-auto my-10"
           />
         </div>
       </div>

@@ -2,10 +2,10 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import libraryHome from "../assets/Library/book_home.png";
-import bookRegister from "../assets/Library/book_register.png";
 import bookSignin from "../assets/Library/book_login.png";
 import bookAdmin from "../assets/Library/book_admin2.png";
 import bookCart from "../assets/Library/book_cart.png";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { projects } from "./Projects";
 
@@ -24,11 +24,18 @@ export const LibraryMS = ({ handleProjectClick }) => {
         >
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
+        <a
+          href="https://github.com/kreid01/LibraryFrontend"
+          className="bg-slate-800 shadow-md px-1 py-2 ml-1  hover:bg-red-500 btn-two"
+        >
+          {" "}
+          <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
+        </a>
       </header>
       <h1 className="my-auto header text-3xl text-slate-700 twitter">
         Library MS
       </h1>
-      <div className="w-[70vw] mx-auto mt-20">
+      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48">
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to create my own authorization and
@@ -38,7 +45,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
         <img
           alt=""
           src={libraryHome}
-          className="h-[67vh] mx-auto my-10 rounded-md shadow-md"
+          className="md:h-[60vh] mx-auto my-10 rounded-md shadow-md h-[40vh]"
         />
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
@@ -63,14 +70,9 @@ export const LibraryMS = ({ handleProjectClick }) => {
         </p>
         <div className="flex my-10">
           <img
-            src={bookRegister}
-            alt=""
-            className="h-[58vh] mx-1 rounded-md shadow-md"
-          />
-          <img
             src={bookSignin}
             alt=""
-            className="h-[58vh] mx-1 rounded-md shadow-md"
+            className="h-[58vh] rounded-md shadow-md mx-auto"
           />
         </div>
         <h2 className="underline my-2">Function and Details of the Page</h2>
@@ -86,7 +88,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
         </p>
         <img
           src={bookAdmin}
-          className="h-[65vh] mx-auto my-10 rounded-md shadow-md"
+          className="md:h-[45vh]  hidden md:block mx-auto my-10 rounded-md shadow-md"
           alt=""
         />
         <p className="my-2">
@@ -102,7 +104,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           <img
             src={bookCart}
             alt=""
-            className="h-[65vh] mx-auto my-10 rounded-md shadow-md"
+            className="md:h-[60vh] h-[40vh] mx-auto my-10 rounded-md shadow-md"
           />
         </div>
       </div>

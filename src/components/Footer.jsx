@@ -5,9 +5,8 @@ import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className=" bg-gradient-to-t from-slate-700 to-gray-800 ">
+    <footer className=" bg-gradient-to-t from-slate-700 to-gray-800 h-[15vh]">
       <div>
-        <button></button>
         <div className="flex justify-center py-10">
           <a
             href="https://www.linkedin.com/in/kieran-reid-0b3041172/"
