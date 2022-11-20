@@ -7,7 +7,11 @@ import twitterProfile from "../assets/Twitter/twitter_profile.png";
 import twitterMessaging from "../assets/Twitter/twttter_messagin.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-import { projects } from "./Projects";
+import { projects } from "../components/Projects";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const TwitterClone = ({ handleProjectClick }) => {
   const skilksDisplayed = projects[0].techStack.map((skill) => {
@@ -16,9 +20,19 @@ export const TwitterClone = ({ handleProjectClick }) => {
     );
   });
 
+  const photos = [twitterHome, twitterSignin, twitterProfile, twitterMessaging];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <section className="height-[100vw] bg-gray-200">
-      <header className="flex justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
+      <header className="flex z-10 justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
         <button
           onClick={() => handleProjectClick("")}
           className="left-5 mt-[10px] absolute text-lg text-white"
@@ -41,11 +55,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
           knowledge on programming. Creating a functional messaging application
           where users can talk in real time was the primary goal.
         </p>
-        <img
-          src={twitterHome}
-          alt=""
-          className="md:h-[62vh] h-[40vh]  mx-auto my-10 rounded-md shadow-md"
-        />
+
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
         <p className="my-2">
@@ -87,11 +97,6 @@ export const TwitterClone = ({ handleProjectClick }) => {
           timeline which show on their profile page. The user can edit their
           profile, updating their profile picture and cover photo of their page.{" "}
         </p>
-        <img
-          src={twitterSignin}
-          alt=" "
-          className="my-10 md:h-[60vh] h-[40vh] mx-auto rounded-md shadow-md"
-        />
         <p className="my-2">
           All posts can be liked, commented or retweeted and if any interaction
           is carried out, the post shows up on the users timeline. Users can
@@ -99,11 +104,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
           application, a user can view all their message history through the use
           of an infinite scroll feature which was implemented using React Query.
         </p>
-        <img
-          src={twitterMessaging}
-          alt=""
-          className="my-10 md:h-[50vh] h-[40vh] mx-auto rounded-md shadow-md"
-        ></img>
+
         <p className="my-2">
           Infinite scrolls were also implemented for the post timeline where
           users can scroll through their feed, seeing all their followers posts
@@ -114,13 +115,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
             users posts and comments.
           </p>
         </p>
-        <div className="pb-20">
-          <img
-            src={twitterProfile}
-            alt=""
-            className="md:h-[65vh] h-[40vh] rounded-md shadow-md mx-auto my-10"
-          />
-        </div>
+        <div className="pb-20"></div>
       </div>
     </section>
   );

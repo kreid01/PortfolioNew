@@ -2,21 +2,36 @@ import React from "react";
 import recordHome from "../assets/Records/records_home.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { projects } from "./Projects";
+import { projects } from "../components/Projects";
 import recordSearch from "../assets/Records/records_search.png";
-import reacordCart from "../assets/Records/records_cart.png";
+import recordCart from "../assets/Records/records_cart.png";
+import recordCheckout from "../assets/Records/records_checkout.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const Records = ({ handleProjectClick }) => {
-  const skilksDisplayed = projects[1].techStack.map((skill) => {
+  const skilksDisplayed = projects[2].techStack.map((skill) => {
     return (
       <div className="px-3 py-1 my-1 mx-1 bg-red-500 text-white">{skill}</div>
     );
   });
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  const photos = [recordHome, recordSearch, recordCart, recordCheckout];
+
   return (
-    <section className="height-[100vw] bg-gray-200 pb-20 ">
-      <header className="flex justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
+    <section className="height-[100vw] bg-gray-200 pb-20">
+      <header className="flex justify-center h-12 sticky top-0 z-20 border-b-4 border-red-500 bg-slate-700 mb-5">
         <button
           onClick={() => handleProjectClick("")}
           className="left-5 mt-[10px] absolute text-lg text-white"
@@ -39,11 +54,6 @@ export const Records = ({ handleProjectClick }) => {
           programme, that forced me to learn some back-end programming. I also
           used the product to test my CSS, JavaScript and React skills.
         </p>
-        <img
-          className="my-10 md:h-[70vh] mx-auto rounded-md shadow-md  h-[40vh]"
-          src={recordHome}
-          alt=""
-        ></img>
 
         <h2 className="underline text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
@@ -72,11 +82,7 @@ export const Records = ({ handleProjectClick }) => {
           required the most attention and forced me to learn about API creation,
           and database manamgent.{" "}
         </p>
-        <img
-          src={reacordCart}
-          alt=""
-          className="md:h-[50vh] h-[30vh] mx-auto shadow-md rounded-md my-10"
-        />
+
         <h2 className="underline text-lg">Function and Details of the Page</h2>
         <p className="my-2">
           The project consisted of a database of records that were mapped and
@@ -92,11 +98,6 @@ export const Records = ({ handleProjectClick }) => {
           list also container a sorting method, which could sort the records
           based on price, artist or record title.
         </p>
-        <img
-          src={recordSearch}
-          alt=""
-          className="my-10 rounded-md shadow-md h-[30vh] md:h-[50vh] lg:h-[60vh]"
-        />
 
         <p className="my-2">
           The new record page gives the user the ability to input a record to

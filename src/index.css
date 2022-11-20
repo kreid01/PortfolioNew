@@ -95,9 +95,15 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-45%, -50%);
+    transform: translate(-50%, -50px);
     -ms-transform: translate(-100%, -60%);
     text-align: center;
+  }
+
+  @media(min-width:768px) {
+    .middle {
+    transform: translate(-50%, -90%);
+    -ms-transform: translate(-100%, -60%);}
   }
 
   @media(min-width:1200px) {
@@ -108,8 +114,7 @@ body {
     }
   }
 
-
-  .project-title {
+.project-title {
     filter: blur(5px);
     transform: translateY(-100%);
     transition:  all 0.5s;

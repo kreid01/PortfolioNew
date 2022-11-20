@@ -6,20 +6,12 @@ import { About } from "./components/About";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { Contact } from "./components/Contact";
-import { TwitterClone } from "./components/TwitterClone";
-import { LibraryMS } from "./components/LibraryMS";
-import { Records } from "./components/Records";
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
-  });
-});
-
-const hiddenElements = document.querySelectorAll(".not-shown");
-hiddenElements.forEach((el) => observer.observe(el));
+import { TwitterClone } from "./projects/TwitterClone";
+import { LibraryMS } from "./projects/LibraryMS";
+import { Records } from "./projects/Records";
+import { useCallback } from "react";
+import { loadFull } from "tsparticles";
+import Particles from "react-tsparticles";
 
 function App() {
   const [projectOpen, setProjectOpen] = useState(false);
@@ -27,28 +19,101 @@ function App() {
   const handleProjectClick = (project) => {
     setProjectOpen((prevState) => !prevState);
     setCurrentProject(project);
-    if (projectOpen) {
-      window.scroll({
-        top: 1600,
-        left: 100,
-        behavior: "smooth",
-      });
-    } else {
-      window.scroll({
-        top: 0,
-        left: 100,
-        behavior: "smooth",
-      });
-    }
+    window.scroll({
+      top: 0,
+      left: 100,
+      behavior: "smooth",
+    });
   };
 
+  const options = {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: true,
+          area: 800,
+        },
+      },
+      color: {
+        value: ["#2EB67D", "#ECB22E", "#E01E5B", "#36C5F0", "rgb(236 72 153)"],
+      },
+      shape: {
+        type: "circle",
+      },
+      opacity: {
+        value: 1,
+      },
+      size: {
+        value: { min: 1, max: 8 },
+      },
+      links: {
+        enable: true,
+        distance: 150,
+        color: "#808080",
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        enable: true,
+        speed: 5,
+        direction: "none",
+        random: false,
+        straight: false,
+        outModes: "out",
+      },
+    },
+    interactivity: {
+      events: {
+        onHover: {
+          enable: true,
+          mode: "grab",
+        },
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+      },
+      modes: {
+        grab: {
+          distance: 140,
+          links: {
+            opacity: 1,
+          },
+        },
+        push: {
+          quantity: 4,
+        },
+        fullscreen: false,
+      },
+    },
+    absorbers: [
+      {
+        direction: "top-right",
+        position: {
+          x: 0,
+          y: 100,
+        },
+        rate: {
+          delay: 0.3,
+          quantity: 1000,
+        },
+      },
+    ],
+  };
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadFull(engine);
+  }, []);
   return (
     <div>
       {!projectOpen && (
         <>
           <section>
+            <Particles options={options} init={particlesInit} />
             <div className="h-[100vh] w-[100vw] flex justify-center bg-gradient-to-t from-slate-700 to-gray-800 ">
               <div className="pt-[40vh] text-white">
+                particles
                 <p>Hi my name is</p>
                 <h2 className="mb-2 font-semibold  text-2xl md:text-4xl">
                   <span className="text-pink-400">Kieran Reid</span> |{" "}

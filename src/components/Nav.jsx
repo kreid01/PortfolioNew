@@ -34,7 +34,7 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: 1650,
+                top: 1600,
                 left: 100,
                 behavior: "smooth",
               })
@@ -47,7 +47,7 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: 4000,
+                top: 3900,
                 left: 100,
                 behavior: "smooth",
               })

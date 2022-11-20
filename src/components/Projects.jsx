@@ -37,7 +37,6 @@ export const projects = [
       "SQLServer",
       "Tailwind",
       "Material UI Core",
-      "Zod",
     ],
     image: book,
     frontGitLink: "https://github.com/kreid01/LibraryFrontend",
@@ -61,8 +60,8 @@ export const projects = [
     backGitLink: "https://github.com/kreid01/KieransRecordsBackEnd",
   },
   {
-    title: "CRM Application",
-    description: "A application to manage interactions between customers",
+    title: "Task Manager",
+    description: "A application to manage your groups, projects and tasks.",
     techStack: [
       "Typescript",
       "React",
@@ -72,7 +71,8 @@ export const projects = [
       "Material UI Core",
       "Zod",
       "expressJS",
-      "Prism",
+      "React Query",
+      "TypegraphQL",
       "Tailwind",
       "Jest",
     ],
@@ -90,8 +90,8 @@ export const Projects = ({ handleProjectClick }) => {
     });
 
     return (
-      <div className="md:px-6 lg:px-32 xl:px-64 not-shown border-b-[1px] border-red-500 pb-10 md:border-0 md:pb-0">
-        <div className="grid md:grid-cols-2 my-10 mx-auto  w-[85vw]  lg:w-[70vw] xl:w-[60vw]  ">
+      <div className="md:px-6 lg:px-24 xl:px-64  border-b-[1px] border-red-500 pb-10 md:border-0 md:pb-0">
+        <div className="grid lg:grid-cols-2 my-10 mx-auto  w-[85vw]  lg:w-[70vw] xl:w-[60vw]  ">
           <div className="mr-8">
             <div className="flex justify-between">
               <h1 className="font-semibold text-2xl">{project.title}</h1>
@@ -107,12 +107,18 @@ export const Projects = ({ handleProjectClick }) => {
               </a>
             </div>
             <p>{project.description}</p>
-            <div className="flex flex-wrap my-3">{techStackMap}</div>
+            <div className="flex flex-wrap my-6 md:my-3 ">{techStackMap}</div>
+            <button
+              onClick={() => handleProjectClick(project.title)}
+              className="bg-white px-4 py-2 border-2 border-pink-500 hidden md:block lg:hidden hover:text-white hover:bg-pink-500 transition-all duration-500"
+            >
+              LEARN MORE
+            </button>
           </div>
           {!project.isWip ? (
-            <div className="relative container">
+            <div className="relative container md:hidden lg:block">
               <img
-                className="w-[100%] md:h-[25vh]  lg:h-80 md:ml-5 -mt-1 image shadow-md rounded-md "
+                className="md:w-[45vw] md:h-[30vh] md:hidden lg:block  lg:h-80 md:ml-5 -mt-1 image shadow-md rounded-md "
                 src={project.image}
                 alt=""
               ></img>

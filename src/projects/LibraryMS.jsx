@@ -1,13 +1,28 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import libraryHome from "../assets/Library/book_home.png";
+import booksHome from "../assets/Library/book_home.png";
+import bookSearch from "../assets/Library/book_search.png";
 import bookSignin from "../assets/Library/book_login.png";
 import bookAdmin from "../assets/Library/book_admin2.png";
 import bookCart from "../assets/Library/book_cart.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-import { projects } from "./Projects";
+import { projects } from "../components/Projects";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+};
+
+const photos = [booksHome, bookCart, bookSignin, bookSearch, bookAdmin];
 
 export const LibraryMS = ({ handleProjectClick }) => {
   const skilksDisplayed = projects[1].techStack.map((skill) => {
@@ -17,7 +32,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
   });
   return (
     <section className="height-[100vw] bg-gray-200">
-      <header className="flex justify-center h-12 sticky top-0  border-b-4 border-red-500  bg-slate-700 mb-5">
+      <header className="flex justify-center h-12 sticky top-0 border-b-4 border-red-500  bg-slate-700 mb-5">
         <button
           onClick={() => handleProjectClick("")}
           className="left-5 mt-[10px] absolute text-lg text-white"
@@ -42,11 +57,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           authentication using roles, within the backend. I also wanted to gain
           experience using a component library.
         </p>
-        <img
-          alt=""
-          src={libraryHome}
-          className="md:h-[60vh] mx-auto my-10 rounded-md shadow-md h-[40vh]"
-        />
+
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
         <p className="my-2">
@@ -68,13 +79,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           the ASP. Net API easier, and allowed for the state of the call such as
           error or loading to easily accessed and used.
         </p>
-        <div className="flex my-10">
-          <img
-            src={bookSignin}
-            alt=""
-            className="h-[58vh] rounded-md shadow-md mx-auto"
-          />
-        </div>
+        <div className="flex my-10"></div>
         <h2 className="underline my-2">Function and Details of the Page</h2>
         <p className="my-2">
           The application allows for users to browse book through searching nad
@@ -86,11 +91,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           the users and orders within the database. The admin page also allows
           for viewing of all stock and who the current owner of the book is.
         </p>
-        <img
-          src={bookAdmin}
-          className="md:h-[45vh]  hidden md:block mx-auto my-10 rounded-md shadow-md"
-          alt=""
-        />
+
         <p className="my-2">
           In the new book page, an admin can post a book to the database by
           filling out the new book form.{" "}
@@ -100,13 +101,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           becomes unavaiable in the database and the current owner value is
           changed to the user who purchased or borrwed the book.
         </p>
-        <div className="pb-20">
-          <img
-            src={bookCart}
-            alt=""
-            className="md:h-[60vh] h-[40vh] mx-auto my-10 rounded-md shadow-md"
-          />
-        </div>
+        <div className="pb-20"></div>
       </div>
     </section>
   );
