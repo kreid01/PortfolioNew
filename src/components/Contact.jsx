@@ -16,7 +16,7 @@ export const Contact = () => {
   };
 
   return (
-    <section className="bg-slate-700">
+    <section className="bg-slate-700 h-[82vh]">
       <h2 className="header text-white pt-20 contact">CONTACT</h2>
       <div className="">
         <form className="grid justify-center w-[100vw] py-24 ">

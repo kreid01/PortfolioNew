@@ -9,6 +9,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import { projects } from "../components/Projects";
 
+import { settings } from "../components/SlickArrow";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,23 +23,16 @@ export const TwitterClone = ({ handleProjectClick }) => {
 
   const photos = [twitterHome, twitterSignin, twitterProfile, twitterMessaging];
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
   return (
-    <section className="height-[100vw] bg-gray-200">
+    <section className="height-[100vw] bg-gray-100">
       <header className="flex z-10 justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
-        <button
+        <a
+          href="#projects"
           onClick={() => handleProjectClick("")}
           className="left-5 mt-[10px] absolute text-lg text-white"
         >
           <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
+        </a>
         <a
           href="https://github.com/kreid01/TwitterCloneFrontend"
           className="bg-slate-800 shadow-md px-1 py-2 ml-1  hover:bg-red-500 btn-two"
@@ -47,15 +41,29 @@ export const TwitterClone = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1 className="my-auto header text-3xl  twitter">Twitter Clone</h1>
-      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48">
+      <h1 className="my-auto header text-3xl  twitter not-shown-project">
+        Twitter Clone
+      </h1>
+      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48 not-shown-project">
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to test my abilities and expand my
           knowledge on programming. Creating a functional messaging application
           where users can talk in real time was the primary goal.
         </p>
-
+        <div className="hidden xl:block">
+          <Slider {...settings} className="my-10">
+            {photos.map((photo) => {
+              return (
+                <img
+                  src={photo}
+                  alt=""
+                  className="lg:h-[70vh] object-scale-down"
+                />
+              );
+            })}
+          </Slider>
+        </div>
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
         <p className="my-2">

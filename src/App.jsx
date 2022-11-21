@@ -11,7 +11,7 @@ import { LibraryMS } from "./projects/LibraryMS";
 import { Records } from "./projects/Records";
 import { useCallback } from "react";
 import { loadFull } from "tsparticles";
-import Particles from "react-tsparticles";
+import { Particles } from "react-particles";
 
 function App() {
   const [projectOpen, setProjectOpen] = useState(false);
@@ -19,11 +19,13 @@ function App() {
   const handleProjectClick = (project) => {
     setProjectOpen((prevState) => !prevState);
     setCurrentProject(project);
-    window.scroll({
-      top: 0,
-      left: 100,
-      behavior: "smooth",
-    });
+    if (!projectOpen) {
+      window.scroll({
+        top: 0,
+        left: 100,
+        behavour: "instant",
+      });
+    }
   };
 
   const options = {
@@ -36,7 +38,7 @@ function App() {
         },
       },
       color: {
-        value: ["#2EB67D", "#ECB22E", "#E01E5B", "#36C5F0", "rgb(236 72 153)"],
+        value: [""],
       },
       shape: {
         type: "circle",
@@ -47,16 +49,21 @@ function App() {
       size: {
         value: { min: 1, max: 8 },
       },
+      fullscreen: {
+        enable: true,
+      },
+      style: {
+        position: "absolute",
+      },
       links: {
         enable: true,
         distance: 150,
-        color: "#808080",
+        color: "FFFFFF",
         opacity: 0.4,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 5,
         direction: "none",
         random: false,
         straight: false,
@@ -84,22 +91,8 @@ function App() {
         push: {
           quantity: 4,
         },
-        fullscreen: false,
       },
     },
-    absorbers: [
-      {
-        direction: "top-right",
-        position: {
-          x: 0,
-          y: 100,
-        },
-        rate: {
-          delay: 0.3,
-          quantity: 1000,
-        },
-      },
-    ],
   };
 
   const particlesInit = useCallback(async (engine) => {
@@ -108,12 +101,17 @@ function App() {
   return (
     <div>
       {!projectOpen && (
-        <>
+        <div className="home">
           <section>
-            <Particles options={options} init={particlesInit} />
+            <div>
+              <Particles
+                options={options}
+                init={particlesInit}
+                style={{ zindex: -1, position: "absolute" }}
+              />
+            </div>
             <div className="h-[100vh] w-[100vw] flex justify-center bg-gradient-to-t from-slate-700 to-gray-800 ">
-              <div className="pt-[40vh] text-white">
-                particles
+              <div className="pt-[40vh] text-white z-10">
                 <p>Hi my name is</p>
                 <h2 className="mb-2 font-semibold  text-2xl md:text-4xl">
                   <span className="text-pink-400">Kieran Reid</span> |{" "}
@@ -127,7 +125,7 @@ function App() {
                   <button
                     onClick={() =>
                       window.scroll({
-                        top: 920,
+                        top: window.innerWidth < 1000 ? 920 : 950,
                         left: 100,
                         behavior: "smooth",
                       })
@@ -145,17 +143,17 @@ function App() {
             </div>
           </section>
           <Nav />
-          <div className="w-[100vw] text-slate-800">
+          <div className="w-[100vw] text-slate-800 relative z-8 bg-white">
             <About />
             <Projects handleProjectClick={handleProjectClick} />
 
-            <section>
+            <section className="hidden">
               <h2 className="header">BLOG</h2>
             </section>
             <Contact />
             <Footer />
           </div>
-        </>
+        </div>
       )}
       {projectOpen && currentProject === "Twitter Clone" && (
         <TwitterClone handleProjectClick={handleProjectClick} />

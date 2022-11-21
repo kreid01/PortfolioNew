@@ -8,10 +8,17 @@ body {
 }
 
 .not-shown {
-    opacity: 00;
+    opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
-    transition: all 1s;
+    transition: all 700ms;
+}
+
+.not-shown-project {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(50%);
+  transition: all 700ms;
 }
 
 .header:before {
@@ -33,6 +40,7 @@ body {
 .show {
     opacity: 1;
     filter: blur(0);
+    scale:1;
     transform: translateX(0);
 }
 
@@ -114,6 +122,7 @@ body {
     }
   }
 
+
 .project-title {
     filter: blur(5px);
     transform: translateY(-100%);
@@ -159,10 +168,20 @@ body {
 
 @layer components {
     .header-item {
-      @apply active:text-pink-600 hover:text-pink-600
+      @apply active:text-pink-600 hover:text-pink-600 transition-all duration-500 
     }
     .header {
-        @apply text-center font-semibold relative text-gray-700 text-4xl my-16 
+        @apply text-center font-semibold relative text-gray-700 text-4xl py-16 
     }
 }
 
+.slick-prev, .slick-next {
+  font-size: 10px !important;
+}
+
+.slick-prev {
+  margin-right:1em;
+}
+ .slick-prev:before, .slick-next:before  {
+  content: '' !important;
+}

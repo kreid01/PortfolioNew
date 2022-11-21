@@ -15,13 +15,26 @@ export const Nav = () => {
 
   return (
     <header className="w-[100vw] sticky top-0 z-10 bg-slate-700 border-b-4 border-red-500">
-      <nav className="w-[65vw] md:w-[50vw]   text-white">
+      <nav className="w-[100vw] md:w-[55vw]  text-white">
         <ul className="flex justify-around py-3">
           <li
-            className="header-item ml-5 md:ml-0"
+            className="header-item ml-5 md:ml-3"
             onClick={() =>
               window.scroll({
-                top: 920,
+                top: 0,
+                left: 100,
+                behavior: "smooth",
+              })
+            }
+          >
+            {" "}
+            HOME
+          </li>
+          <li
+            className="header-item "
+            onClick={() =>
+              window.scroll({
+                top: window.innerWidth < 1000 ? 920 : 930,
                 left: 100,
                 behavior: "smooth",
               })
@@ -34,7 +47,7 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: 1600,
+                top: window.innerWidth < 1000 ? 1700 : 1650,
                 left: 100,
                 behavior: "smooth",
               })
@@ -43,20 +56,19 @@ export const Nav = () => {
             {" "}
             PROJECTS
           </li>
+          <li className="header-item hidden"> BLOG</li>
           <li
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: 3900,
-                left: 100,
+                top: window.innerWidth < 1000 ? 5000 : 4500,
                 behavior: "smooth",
               })
             }
           >
             {" "}
-            BLOG
+            CONTACT
           </li>
-          <li className="header-item"> CONTACT</li>
         </ul>
       </nav>
     </header>

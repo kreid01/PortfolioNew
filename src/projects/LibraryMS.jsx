@@ -8,19 +8,12 @@ import bookAdmin from "../assets/Library/book_admin2.png";
 import bookCart from "../assets/Library/book_cart.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import { settings } from "../components/SlickArrow";
 import { projects } from "../components/Projects";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
 
 const photos = [booksHome, bookCart, bookSignin, bookSearch, bookAdmin];
 
@@ -31,14 +24,15 @@ export const LibraryMS = ({ handleProjectClick }) => {
     );
   });
   return (
-    <section className="height-[100vw] bg-gray-200">
-      <header className="flex justify-center h-12 sticky top-0 border-b-4 border-red-500  bg-slate-700 mb-5">
-        <button
+    <section className="height-[100vw] bg-white">
+      <header className="flex justify-center h-12 sticky top-0 border-b-4 z-30 border-red-500  bg-slate-700 mb-5">
+        <a
+          href="#projects"
           onClick={() => handleProjectClick("")}
           className="left-5 mt-[10px] absolute text-lg text-white"
         >
           <FontAwesomeIcon icon={faArrowLeft} />
-        </button>
+        </a>
         <a
           href="https://github.com/kreid01/LibraryFrontend"
           className="bg-slate-800 shadow-md px-1 py-2 ml-1  hover:bg-red-500 btn-two"
@@ -47,17 +41,29 @@ export const LibraryMS = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1 className="my-auto header text-3xl text-slate-700 twitter">
+      <h1 className="my-auto header text-3xl text-slate-700 twitter not-shown-project">
         Library MS
       </h1>
-      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48">
+      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48 not-shown-project">
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to create my own authorization and
           authentication using roles, within the backend. I also wanted to gain
           experience using a component library.
         </p>
-
+        <div className="hidden xl:block">
+          <Slider {...settings} className="my-10">
+            {photos.map((photo) => {
+              return (
+                <img
+                  src={photo}
+                  alt=""
+                  className="sm:hidden h-[60vh] object-scale-down"
+                />
+              );
+            })}
+          </Slider>
+        </div>
         <h2 className="underline my-2 text-lg">Web Stack</h2>
         <div className="flex flex-wrap my-10">{skilksDisplayed}</div>
         <p className="my-2">
