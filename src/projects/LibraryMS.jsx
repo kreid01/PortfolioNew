@@ -41,24 +41,32 @@ export const LibraryMS = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1 className="my-auto header text-3xl text-slate-700 twitter not-shown-project">
+      <h1
+        className={`my-auto header text-3xl text-slate-700 twitter ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         Library MS
       </h1>
-      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48 not-shown-project">
+      <div
+        className={`w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48  ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to create my own authorization and
           authentication using roles, within the backend. I also wanted to gain
           experience using a component library.
         </p>
-        <div className="hidden xl:block">
+        <div className=" md:hidden xl:block">
           <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (
                 <img
                   src={photo}
                   alt=""
-                  className="sm:hidden h-[60vh] object-scale-down"
+                  className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
                 />
               );
             })}
@@ -85,8 +93,16 @@ export const LibraryMS = ({ handleProjectClick }) => {
           the ASP. Net API easier, and allowed for the state of the call such as
           error or loading to easily accessed and used.
         </p>
-        <div className="flex my-10"></div>
-        <h2 className="underline my-2">Function and Details of the Page</h2>
+        <h2 className="underline my-2 text-lg">What I Learned</h2>
+        <p>
+          Throughout the design and creation of the application I learned about
+          code splitting and lazy loading and how they can result in faster
+          initial load times and improved performance. I also learned methods of
+          querying my SQL database using dapper.
+        </p>
+        <h2 className="underline my-2 text-lg">
+          Function and Details of the Page
+        </h2>
         <p className="my-2">
           The application allows for users to browse book through searching nad
           filtering. If the user finds a book they want, they can either buy the
@@ -97,7 +113,6 @@ export const LibraryMS = ({ handleProjectClick }) => {
           the users and orders within the database. The admin page also allows
           for viewing of all stock and who the current owner of the book is.
         </p>
-
         <p className="my-2">
           In the new book page, an admin can post a book to the database by
           filling out the new book form.{" "}

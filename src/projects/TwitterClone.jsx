@@ -41,17 +41,25 @@ export const TwitterClone = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1 className="my-auto header text-3xl  twitter not-shown-project">
+      <h1
+        className={`my-auto header text-3xl  twitter ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         Twitter Clone
       </h1>
-      <div className="w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48 not-shown-project">
+      <div
+        className={`w-[70vw] mx-auto mt-20 md:px-12 lg:px-32 xl:px-48 ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to test my abilities and expand my
           knowledge on programming. Creating a functional messaging application
           where users can talk in real time was the primary goal.
         </p>
-        <div className="hidden xl:block">
+        <div className="md:hidden xl:block">
           <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (
@@ -96,6 +104,16 @@ export const TwitterClone = ({ handleProjectClick }) => {
           page. This was solved using React Context which stored the users data
           in context. On change of the users data, the context would be updated
           using an API call.
+        </p>
+        <h2 className="underline my-2 text-lg">What I Learned</h2>
+        <p>
+          This project started my leanring of typescript and how useful the type
+          system can be during coding. I also discovered more methods of
+          creating resuable code and components within my program.
+          <p>
+            This was also my first project that included automated tests using
+            jest.
+          </p>
         </p>
         <h2 className="underline my-2 text-lg">
           Function and Details of the Page

@@ -34,7 +34,12 @@ export const Nav = () => {
             className="header-item "
             onClick={() =>
               window.scroll({
-                top: window.innerWidth < 1000 ? 920 : 930,
+                top:
+                  window.innerWidth < 700
+                    ? 820
+                    : window.innerWidth < 1000
+                    ? 920
+                    : 930,
                 left: 100,
                 behavior: "smooth",
               })
@@ -47,7 +52,12 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: window.innerWidth < 1000 ? 1700 : 1650,
+                top:
+                  window.innerWidth < 700
+                    ? 1950
+                    : window.innerWidth < 1000
+                    ? 1700
+                    : 1650,
                 left: 100,
                 behavior: "smooth",
               })
@@ -61,7 +71,12 @@ export const Nav = () => {
             className="header-item"
             onClick={() =>
               window.scroll({
-                top: window.innerWidth < 1000 ? 5000 : 4500,
+                top:
+                  window.innerWidth < 700
+                    ? 4900
+                    : window.innerWidth < 1000
+                    ? 5000
+                    : 4500,
                 behavior: "smooth",
               })
             }

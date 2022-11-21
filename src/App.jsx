@@ -117,7 +117,7 @@ function App() {
                   <span className="text-pink-400">Kieran Reid</span> |{" "}
                   <span className="">Software Engineer</span>
                 </h2>
-                <p className="w-[50vw] lg:w-[30vw] text-lg md:text-xl">
+                <p className="w-[55vw] lg:w-[30vw] text-lg md:text-xl">
                   A passionate developer who loves solving problems and creating
                   software.
                 </p>
@@ -125,7 +125,12 @@ function App() {
                   <button
                     onClick={() =>
                       window.scroll({
-                        top: window.innerWidth < 1000 ? 920 : 950,
+                        top:
+                          window.innerWidth < 700
+                            ? 830
+                            : window.innerWidth < 1000
+                            ? 920
+                            : 950,
                         left: 100,
                         behavior: "smooth",
                       })

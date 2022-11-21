@@ -40,24 +40,32 @@ export const Records = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1 className="my-auto header text-3xl  twitter not-shown-project">
+      <h1
+        className={`my-auto header text-3xl  twitter ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         Kierans' Records
       </h1>
-      <div className="w-[70vw] mx-auto mt-20 md:px-16 lg:px-32 xl:px-48 not-shown-project">
+      <div
+        className={`w-[70vw] mx-auto mt-20 md:px-16 lg:px-32 xl:px-48" ${
+          window.innerWidth > 1000 ? "not-shown-project" : ""
+        }`}
+      >
         <h2 className="underline text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to attempt to create a more complex
           programme, that forced me to learn some back-end programming. I also
           used the product to test my CSS, JavaScript and React skills.
         </p>
-        <div className="hidden xl:block">
+        <div className="md:hidden xl:block">
           <Slider {...settings} className="my-10 z-5">
             {photos.map((photo) => {
               return (
                 <img
                   src={photo}
                   alt=""
-                  className="h-[60vh] object-scale-down"
+                  className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
                 />
               );
             })}
@@ -90,8 +98,17 @@ export const Records = ({ handleProjectClick }) => {
           required the most attention and forced me to learn about API creation,
           and database manamgent.{" "}
         </p>
+        <h2 className="underlinem text-lg my-2">What I Learned</h2>
+        <p>
+          I learned how to design and utilise my own API that connects to a
+          database using .Net 6. I also learned how important organization of
+          both files and code is and how impactful it can be to refactoring and
+          maintainability.
+        </p>
 
-        <h2 className="underline text-lg">Function and Details of the Page</h2>
+        <h2 className="underline text-lg my-2">
+          Function and Details of the Page
+        </h2>
         <p className="my-2">
           The project consisted of a database of records that were mapped and
           displayed on the front-end with details on artist, price etc. The

@@ -76,7 +76,7 @@ export const projects = [
       "Tailwind",
       "Jest",
     ],
-    image: book,
+    frontGitLink: "https://github.com/kreid01/TaskManagement",
     isWip: true,
   },
 ];

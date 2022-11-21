@@ -10,7 +10,7 @@ export const Footer = () => {
       <div>
         <div className="flex justify-center py-10">
           <a
-            href="https://www.linkedin.com/in/kieran-reid-0b3041172/"
+            href="https://www.linkedin.com/in/kieran-reid01"
             className="bg-slate-700 shadow-md px-1 py-2 mx-2 hover:bg-red-500 btn-two"
           >
             {" "}
