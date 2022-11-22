@@ -89,3 +89,5 @@ export const Nav = () => {
     </header>
   );
 };
+
+export default Nav;

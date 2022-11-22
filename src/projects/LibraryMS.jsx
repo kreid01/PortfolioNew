@@ -8,8 +8,11 @@ import bookAdmin from "../assets/Library/book_admin2.png";
 import bookCart from "../assets/Library/book_cart.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { settings } from "../components/SlickArrow";
 import { projects } from "../components/Projects";
+
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -63,8 +66,10 @@ export const LibraryMS = ({ handleProjectClick }) => {
           <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (
-                <img
+                <LazyLoadImage
                   src={photo}
+                  placeholderSrc={photo}
+                  effect="blur"
                   alt=""
                   className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
                 />
@@ -83,15 +88,15 @@ export const LibraryMS = ({ handleProjectClick }) => {
         </p>
         <p>
           The user registration form and new book form both use Material UI
-          Components and useForm, to make creating a functional easy and viually
-          appealing. The forms also use Zod for validation. I chose Zod as the
-          refinment feature in the schema allowed for password mathcing
-          validation.
+          Components and useForm, which help in creating a functional, and
+          visually appealing form more efficiently. The forms also use Zod for
+          validation. I chose Zod as the refinment feature in the schema allowed
+          for password mathcing validation.
         </p>
         <p>
           React Query's useQuery and useMutation hook made communicating with
           the ASP. Net API easier, and allowed for the state of the call such as
-          error or loading to easily accessed and used.
+          error or loading to be easily accessed and used.
         </p>
         <h2 className="underline my-2 text-lg">What I Learned</h2>
         <p>
@@ -104,7 +109,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
           Function and Details of the Page
         </h2>
         <p className="my-2">
-          The application allows for users to browse book through searching nad
+          The application allows for users to browse books through searching nad
           filtering. If the user finds a book they want, they can either buy the
           book or borrow the book from the library.
         </p>
@@ -120,7 +125,7 @@ export const LibraryMS = ({ handleProjectClick }) => {
         <p className="my-2">
           When users checkout and succesfully pay through paypal, the book then
           becomes unavaiable in the database and the current owner value is
-          changed to the user who purchased or borrwed the book.
+          changed to the user who purchased or borrowed the book.
         </p>
         <div className="pb-20"></div>
       </div>

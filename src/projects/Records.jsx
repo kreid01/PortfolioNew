@@ -8,7 +8,11 @@ import recordCart from "../assets/Records/records_cart.png";
 import recordCheckout from "../assets/Records/records_checkout.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import { settings } from "../components/SlickArrow";
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -55,15 +59,17 @@ export const Records = ({ handleProjectClick }) => {
         <h2 className="underline text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to attempt to create a more complex
-          programme, that forced me to learn some back-end programming. I also
-          used the product to test my CSS, JavaScript and React skills.
+          program, that forced me to learn some back-end programming. I also
+          used the project to test my CSS, JavaScript and React skills.
         </p>
         <div className="md:hidden xl:block">
-          <Slider {...settings} className="my-10 z-5">
+          <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (
-                <img
+                <LazyLoadImage
                   src={photo}
+                  placeholderSrc={photo}
+                  effect="blur"
                   alt=""
                   className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
                 />
@@ -81,7 +87,7 @@ export const Records = ({ handleProjectClick }) => {
           create a responsive API to communicate to the database with.
         </p>
         <p className="my-2">
-          The data base was created using mongoCompass and the data was
+          The database server was created using mongoCompass and the data was
           populated and edited using CRUD within the front-end application.
         </p>
         <h2 className="underline text-lg">
@@ -98,12 +104,17 @@ export const Records = ({ handleProjectClick }) => {
           required the most attention and forced me to learn about API creation,
           and database manamgent.{" "}
         </p>
-        <h2 className="underlinem text-lg my-2">What I Learned</h2>
+        <h2 className="underline text-lg my-2">What I Learned</h2>
         <p>
           I learned how to design and utilise my own API that connects to a
           database using .Net 6. I also learned how important organization of
           both files and code is and how impactful it can be to refactoring and
           maintainability.
+        </p>
+        <p>
+          Implementing Auth0 into the project forced me to learn about how
+          authorization works, including both access tokens, refresh tokens and
+          the difference between authentication and authorization.
         </p>
 
         <h2 className="underline text-lg my-2">
@@ -112,9 +123,9 @@ export const Records = ({ handleProjectClick }) => {
         <p className="my-2">
           The project consisted of a database of records that were mapped and
           displayed on the front-end with details on artist, price etc. The
-          application has a section for the home page, total record list, the
-          users collection of records, a new record page, cart which also
-          contained a wishlist and a blog page for news on the latest records.
+          application has a section for the home page, total record list, a new
+          record page, adn a cart which also contained a wishlist and a blog
+          page for news on the latest records.
         </p>
         <p className="my-2">
           The total record list used pagination from the back-end to grab 20
@@ -149,3 +160,5 @@ export const Records = ({ handleProjectClick }) => {
     </section>
   );
 };
+
+export default Records;

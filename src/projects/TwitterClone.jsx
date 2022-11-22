@@ -7,6 +7,8 @@ import twitterProfile from "../assets/Twitter/twitter_profile.png";
 import twitterMessaging from "../assets/Twitter/twttter_messagin.png";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { projects } from "../components/Projects";
 
 import { settings } from "../components/SlickArrow";
@@ -56,17 +58,20 @@ export const TwitterClone = ({ handleProjectClick }) => {
         <h2 className="underline my-2 text-lg">Project Purpose</h2>
         <p className="my-2">
           The purpose of this project was to test my abilities and expand my
-          knowledge on programming. Creating a functional messaging application
-          where users can talk in real time was the primary goal.
+          knowledge on creating larger scale projects. Creating a functional
+          messaging application where users can talk in real time was the
+          primary goal.
         </p>
         <div className="md:hidden xl:block">
           <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (
-                <img
+                <LazyLoadImage
                   src={photo}
+                  placeholderSrc={photo}
+                  effect="blur"
                   alt=""
-                  className="lg:h-[70vh] object-scale-down"
+                  className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
                 />
               );
             })}
@@ -77,7 +82,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
         <p className="my-2">
           I used React as its a powerful language which allows for the ability
           to create and re-use components with ease. This makes the app more
-          maintanable and less bug prone. I chose to you Typescript as its type
+          maintainable and less bug prone. I chose to use Typescript as its type
           checking allows for less run time errors due to type issues being
           recognizable immediately.
         </p>
@@ -146,3 +151,5 @@ export const TwitterClone = ({ handleProjectClick }) => {
     </section>
   );
 };
+
+export default TwitterClone;

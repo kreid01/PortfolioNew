@@ -4,6 +4,9 @@ import book from "../assets/Library/book.png";
 import twitterThumbnail from "../assets/Twitter/twitter_thumbnail.png";
 import record from "../assets/Records/records.png";
 
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+
 export const projects = [
   {
     title: "Twitter Clone",
@@ -25,7 +28,7 @@ export const projects = [
   {
     title: "Library MS",
     description:
-      "A site that functions as a both book store and a library, which allows users to both buy and borrow books. The site also includes an admin section, where stock and orders can be viewed",
+      "A site that functions as a both book store and a library, which allows user buy and borrow books. The site also includes an admin section, where stock and orders can be viewed",
     techStack: [
       "Typescript",
       "React",
@@ -122,11 +125,12 @@ export const Projects = ({ handleProjectClick }) => {
           </div>
           {!project.isWip ? (
             <div className="relative container md:hidden lg:block">
-              <img
+              <LazyLoadImage
+                effect="blur"
                 className="md:w-[45vw] md:h-[30vh] md:hidden object-cover object-left lg:block  lg:h-80 md:ml-5 -mt-1 image shadow-md rounded-md "
                 src={project.image}
                 alt=""
-              ></img>
+              ></LazyLoadImage>
               <div className="middle mr-2">
                 <h2 className="font-bold text-xl project-title">
                   {project.title}
@@ -158,3 +162,5 @@ export const Projects = ({ handleProjectClick }) => {
     </section>
   );
 };
+
+export default Projects;

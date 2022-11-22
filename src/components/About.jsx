@@ -57,9 +57,9 @@ export const About = () => {
               alt=""
             />
             <p className="w-[60vw] md:w-[35vw] lg:w-[30vw] mt-6 text-center ml-[20%] md:-ml-4 mb-5">
-              I have been been interested in computers since I was young and
-              have a love and passion for solving software problems and creating
-              programmes.
+              I have been been interested in computers since I was young and I
+              am always searching for new methods to improve my coding
+              efficiency and performance.
             </p>
           </div>
           <div>
@@ -73,3 +73,5 @@ export const About = () => {
     </section>
   );
 };
+
+export default About;

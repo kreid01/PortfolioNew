@@ -1,17 +1,19 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
 import { Nav } from "./components/Nav";
-import { About } from "./components/About";
-import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
-import { Contact } from "./components/Contact";
-import { TwitterClone } from "./projects/TwitterClone";
-import { LibraryMS } from "./projects/LibraryMS";
-import { Records } from "./projects/Records";
 import { useCallback } from "react";
 import { loadFull } from "tsparticles";
 import { Particles } from "react-particles";
+import { LoadingSVG } from "./components/LoadingSVG";
+
+const About = lazy(() => import("./components/About"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
+const LibraryMS = lazy(() => import("./projects/LibraryMS"));
+const Records = lazy(() => import("./projects/Records"));
+const TwitterClone = lazy(() => import("./projects/TwitterClone"));
 
 function App() {
   const [projectOpen, setProjectOpen] = useState(false);
@@ -149,25 +151,82 @@ function App() {
           </section>
           <Nav />
           <div className="w-[100vw] text-slate-800 relative z-8 bg-white">
-            <About />
-            <Projects handleProjectClick={handleProjectClick} />
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSVG />
+                </div>
+              }
+            >
+              <About />
+            </Suspense>
 
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSVG />
+                </div>
+              }
+            >
+              <Projects handleProjectClick={handleProjectClick} />
+            </Suspense>
             <section className="hidden">
               <h2 className="header">BLOG</h2>
             </section>
-            <Contact />
-            <Footer />
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSVG />
+                </div>
+              }
+            >
+              <Contact />
+            </Suspense>
+            <Suspense
+              fallback={
+                <div>
+                  <LoadingSVG />
+                </div>
+              }
+            >
+              <Footer />
+            </Suspense>
           </div>
         </div>
       )}
       {projectOpen && currentProject === "Twitter Clone" && (
-        <TwitterClone handleProjectClick={handleProjectClick} />
+        <Suspense
+          fallback={
+            <div>
+              <LoadingSVG />
+            </div>
+          }
+        >
+          <TwitterClone handleProjectClick={handleProjectClick} />
+        </Suspense>
       )}
+
       {projectOpen && currentProject === "Library MS" && (
-        <LibraryMS handleProjectClick={handleProjectClick} />
+        <Suspense
+          fallback={
+            <div>
+              <LoadingSVG />
+            </div>
+          }
+        >
+          <LibraryMS handleProjectClick={handleProjectClick} />
+        </Suspense>
       )}
       {projectOpen && currentProject === "Kierans' Records" && (
-        <Records handleProjectClick={handleProjectClick} />
+        <Suspense
+          fallback={
+            <div>
+              <LoadingSVG />
+            </div>
+          }
+        >
+          <Records handleProjectClick={handleProjectClick} />
+        </Suspense>
       )}
     </div>
   );
