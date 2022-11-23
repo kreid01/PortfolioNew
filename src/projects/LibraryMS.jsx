@@ -132,3 +132,5 @@ export const LibraryMS = ({ handleProjectClick }) => {
     </section>
   );
 };
+
+export default LibraryMS;

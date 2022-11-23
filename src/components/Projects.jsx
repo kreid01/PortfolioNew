@@ -73,7 +73,7 @@ export const projects = [
       "Apollo GraphQL",
       "Material UI Core",
       "Zod",
-      "expressJS",
+      "Expressjs",
       "React Query",
       "TypegraphQL",
       "Tailwind",
@@ -125,12 +125,12 @@ export const Projects = ({ handleProjectClick }) => {
           </div>
           {!project.isWip ? (
             <div className="relative container md:hidden lg:block">
-              <LazyLoadImage
+              <img
                 effect="blur"
                 className="md:w-[45vw] md:h-[30vh] md:hidden object-cover object-left lg:block  lg:h-80 md:ml-5 -mt-1 image shadow-md rounded-md "
                 src={project.image}
                 alt=""
-              ></LazyLoadImage>
+              ></img>
               <div className="middle mr-2">
                 <h2 className="font-bold text-xl project-title">
                   {project.title}

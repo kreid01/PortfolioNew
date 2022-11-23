@@ -56,6 +56,10 @@ body {
     opacity: 1;
     transition: .5s ease;
     backface-visibility: hidden;
+  }
+
+  .image:hover {
+    opacity: 0;
     
   }
 
@@ -189,6 +193,8 @@ body {
 .svg {
   display: inline-block;
   height: 200px;
+  margin-left: 40%;
+  margin-top:10vh;
   text-align: center;
   width: 200px;
   line-height: 200px;

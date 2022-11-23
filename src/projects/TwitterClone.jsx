@@ -26,7 +26,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
   const photos = [twitterHome, twitterSignin, twitterProfile, twitterMessaging];
 
   return (
-    <section className="height-[100vw] bg-gray-100">
+    <section className="height-[100vw] bg-white">
       <header className="flex z-10 justify-center h-12 sticky top-0  border-b-4 border-red-500 bg-slate-700 mb-5">
         <a
           href="#projects"
@@ -62,7 +62,7 @@ export const TwitterClone = ({ handleProjectClick }) => {
           messaging application where users can talk in real time was the
           primary goal.
         </p>
-        <div className="md:hidden xl:block">
+        <div className="md:hidden xl:block xl:w-[40vw] mx-auto">
           <Slider {...settings} className="my-10">
             {photos.map((photo) => {
               return (

@@ -124,7 +124,7 @@ export const Records = ({ handleProjectClick }) => {
           The project consisted of a database of records that were mapped and
           displayed on the front-end with details on artist, price etc. The
           application has a section for the home page, total record list, a new
-          record page, adn a cart which also contained a wishlist and a blog
+          record page, adn a cart. The page also contained a wishlist and a blog
           page for news on the latest records.
         </p>
         <p className="my-2">
@@ -144,7 +144,7 @@ export const Records = ({ handleProjectClick }) => {
         </p>
 
         <p className="my-2">
-          The cart page contained a wishlist, a cart and a payment area. The
+          The cart page contained a cart and a payment area. The
           payment would take the user to paypal, and if the payment went
           through, the database would be updated according to the order.
         </p>
