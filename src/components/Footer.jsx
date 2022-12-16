@@ -27,7 +27,7 @@ export const Footer = () => {
             <FontAwesomeIcon icon={faGithub} className="h-7 mx-2 text-white" />
           </a>
           <a
-            href="https://docs.google.com/document/d/1cQ759PA8p5_aQmpxGi9W95iFu8tEXf3T/edit?usp=sharing&ouid=114049244276491207017&rtpof=true&sd=true"
+            href="https://docs.google.com/document/d/1Z6t2Ppi0yVoYmM4ul9nu36dA8Z-1SW1N/edit?usp=sharing&ouid=114049244276491207017&rtpof=true&sd=true"
             className="bg-slate-700 shadow-md px-1 py-2 mx-2 hover:bg-red-500 btn-two"
             target="_blank"
             rel="noreferrer"

@@ -44,13 +44,13 @@ export const Records = ({ handleProjectClick }) => {
           <FontAwesomeIcon icon={faGithub} className="h-6 mx-2 text-white" />
         </a>
       </header>
-      <h1
+      <h2
         className={`my-auto header text-3xl  twitter ${
           window.innerWidth > 1000 ? "not-shown-project" : ""
         }`}
       >
         Kierans' Records
-      </h1>
+      </h2>
       <div
         className={`w-[70vw] mx-auto mt-20 md:px-16 lg:px-32 xl:px-48" ${
           window.innerWidth > 1000 ? "not-shown-project" : ""
@@ -63,7 +63,7 @@ export const Records = ({ handleProjectClick }) => {
           used the project to test my CSS, JavaScript and React skills.
         </p>
         <div className="md:hidden xl:block">
-          <Slider {...settings} className="my-10">
+          <Slider {...settings} className="my-10 xl:w-[58vw]  mx-auto">
             {photos.map((photo) => {
               return (
                 <LazyLoadImage
@@ -71,7 +71,7 @@ export const Records = ({ handleProjectClick }) => {
                   placeholderSrc={photo}
                   effect="blur"
                   alt=""
-                  className="h-[30vh] xl:h-[70vh] object-cover md:object-scale-down"
+                  className="h-[30vh] xl:h-[72vh] object-cover md:object-scale-down"
                 />
               );
             })}
@@ -144,9 +144,9 @@ export const Records = ({ handleProjectClick }) => {
         </p>
 
         <p className="my-2">
-          The cart page contained a cart and a payment area. The
-          payment would take the user to paypal, and if the payment went
-          through, the database would be updated according to the order.
+          The cart page contained a cart and a payment area. The payment would
+          take the user to paypal, and if the payment went through, the database
+          would be updated according to the order.
         </p>
 
         <p className="my-2">

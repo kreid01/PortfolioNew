@@ -14,6 +14,7 @@ const Contact = lazy(() => import("./components/Contact"));
 const LibraryMS = lazy(() => import("./projects/LibraryMS"));
 const Records = lazy(() => import("./projects/Records"));
 const TwitterClone = lazy(() => import("./projects/TwitterClone"));
+const Tasker = lazy(() => import("./projects/Tasker"));
 
 function App() {
   const [projectOpen, setProjectOpen] = useState(false);
@@ -119,7 +120,7 @@ function App() {
                   <span className="text-pink-400">Kieran Reid</span> |{" "}
                   <span className="">Software Engineer</span>
                 </h2>
-                <p className="w-[55vw] lg:w-[30vw] text-lg md:text-xl">
+                <p className="w-[65vw] lg:w-[30vw] text-lg md:text-xl">
                   A passionate developer who loves solving problems and creating
                   software.
                 </p>
@@ -129,11 +130,17 @@ function App() {
                       window.scroll({
                         top:
                           window.innerWidth < 700
-                            ? 830
+                            ? 800
                             : window.innerWidth < 1000
                             ? 920
-                            : 950,
-                        left: 100,
+                            : window.innerWidth < 1300
+                            ? 920
+                            : window.innerWidth < 1800
+                            ? 920
+                            : window.innerWidth < 2000
+                            ? 930
+                            : 1300,
+                        left: 0,
                         behavior: "smooth",
                       })
                     }
@@ -226,6 +233,18 @@ function App() {
           }
         >
           <Records handleProjectClick={handleProjectClick} />
+        </Suspense>
+      )}
+
+      {projectOpen && currentProject === "Task Manager" && (
+        <Suspense
+          fallback={
+            <div>
+              <LoadingSVG />
+            </div>
+          }
+        >
+          <Tasker handleProjectClick={handleProjectClick} />
         </Suspense>
       )}
     </div>

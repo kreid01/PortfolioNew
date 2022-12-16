@@ -1,26 +1,33 @@
+import sthlm from "../assets/STHLM.jpg";
+
 export const About = () => {
   const mySkills = [
     "Javascript",
     "Typescript",
     "React",
-    "Nextjs",
+    "NextJS",
     "Redux",
     "ASP .Net",
+    "GraphQL",
     "Apollo GraphQL",
+    "Nexus",
     "HTML",
     "CSS",
     "MongoDB",
-    "PostgreSQL",
-    "SQLServer",
-    "Bootstrap",
+    "SQL",
     "Jest",
     "Tailwind",
     "SASS",
     "Git",
+    "NodeJS",
+    "ExpressJS",
+    "Docker",
+    "Gitlab",
     "React Query",
-    "Nodejs",
-    "Expressjs",
-    "Material UI Core",
+    "Prisma",
+    "React Native",
+    "CICD",
+    "AWS",
   ];
 
   const observer = new IntersectionObserver((entries) => {
@@ -37,7 +44,7 @@ export const About = () => {
     hiddenPages.forEach((el) => observer.observe(el));
 
     hiddenElements.forEach((el) => observer.observe(el));
-  }, 1000);
+  }, 50);
 
   const mySkillsDisplayed = mySkills.map((skill) => {
     return (
@@ -46,27 +53,27 @@ export const About = () => {
   });
 
   return (
-    <section className="mx-auto md:px-12 lg:px-32 -mt-2 xl:px-64">
-      <div className="not-shown">
+    <section className="mx-auto -mt-2 flex">
+      <div>
+        <img
+          src={sthlm}
+          alt=""
+          className="w-[57vw] sthlm object-scale-down hidden xl:block"
+        />
+      </div>
+      <div>
         <h2 className="header">ABOUT</h2>
-        <div className="py-10  mt-16 flex flex-col md:flex-row justify-center about">
-          <div>
-            <img
-              className="h-72 w-72 rounded-full mx-auto"
-              src="https://weareformation.com/wp-content/uploads/2021/05/louis-du-mont-herbert-in-cycles-768x768.jpg"
-              alt=""
-            />
-            <p className="w-[60vw] md:w-[35vw] lg:w-[30vw] mt-6 text-center ml-[20%] md:-ml-4 mb-5">
-              I have been been interested in computers since I was young and I
-              am always searching for new methods to improve my coding
-              efficiency and performance.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-bold text-xl text-center mb-5">My Skills</h3>
-            <div className="md:ml-20 w-[75vw] mx-auto md:w-[43vw] lg:w-[35vw] flex flex-wrap">
-              {mySkillsDisplayed}
-            </div>
+        <div className=" py-5 h-[70%] mx-auto xl:pl-[5vw]  xl:w-[40vw] flex flex-col w-[100vw]  justify-center about">
+          <p className="about-container w-[70vw] mx-auto xl:m-0 md:w-[60vw] xl:w-[35vw] my-10 lg:my-10">
+            I have been been interested in computers since I was young and I am
+            constantly seeking for new methods to develop my coding skills and
+            knowledge.
+          </p>
+          <h3 className="w-[80vw] md:w-[60vw] about-container mx-auto xl:mx-0 font-bold text-xl mt-5">
+            My Skills
+          </h3>
+          <div className="w-[80vw] mx-auto  xl:mx-0 md:w-[60vw] about-container xl:w-[35vw] flex flex-wrap mb-5">
+            {mySkillsDisplayed}
           </div>
         </div>
       </div>

@@ -36,11 +36,17 @@ export const Nav = () => {
               window.scroll({
                 top:
                   window.innerWidth < 700
-                    ? 820
+                    ? 800
                     : window.innerWidth < 1000
                     ? 920
-                    : 930,
-                left: 100,
+                    : window.innerWidth < 1300
+                    ? 920
+                    : window.innerWidth < 1800
+                    ? 920
+                    : window.innerWidth < 2000
+                    ? 930
+                    : 1300,
+                left: 0,
                 behavior: "smooth",
               })
             }
@@ -54,11 +60,17 @@ export const Nav = () => {
               window.scroll({
                 top:
                   window.innerWidth < 700
-                    ? 1950
+                    ? 1590
                     : window.innerWidth < 1000
-                    ? 1700
-                    : 1650,
-                left: 100,
+                    ? 1450
+                    : window.innerWidth < 1300
+                    ? 1450
+                    : window.innerWidth < 1800
+                    ? 1550
+                    : window.innerWidth < 2000
+                    ? 1800
+                    : 2450,
+                left: 0,
                 behavior: "smooth",
               })
             }
@@ -73,10 +85,10 @@ export const Nav = () => {
               window.scroll({
                 top:
                   window.innerWidth < 700
-                    ? 4900
+                    ? 5400
                     : window.innerWidth < 1000
-                    ? 5000
-                    : 4500,
+                    ? 5800
+                    : 5800,
                 behavior: "smooth",
               })
             }
