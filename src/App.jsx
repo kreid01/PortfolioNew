@@ -15,6 +15,7 @@ const LibraryMS = lazy(() => import("./projects/LibraryMS"));
 const Records = lazy(() => import("./projects/Records"));
 const TwitterClone = lazy(() => import("./projects/TwitterClone"));
 const Tasker = lazy(() => import("./projects/Tasker"));
+const Homemade = lazy(() => import("./projects/Homemade"));
 
 function App() {
   const [projectOpen, setProjectOpen] = useState(false);
@@ -245,6 +246,18 @@ function App() {
           }
         >
           <Tasker handleProjectClick={handleProjectClick} />
+        </Suspense>
+      )}
+
+      {projectOpen && currentProject === "Homemade" && (
+        <Suspense
+          fallback={
+            <div>
+              <LoadingSVG />
+            </div>
+          }
+        >
+          <Homemade handleProjectClick={handleProjectClick} />
         </Suspense>
       )}
     </div>

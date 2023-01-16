@@ -10,7 +10,7 @@ body {
 .not-shown {
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-100%);
+  transform: translateY(100%);
   transition: all 700ms;
 }
 
@@ -45,6 +45,12 @@ body {
   }
   .about-container {
     max-width: 30vw;
+  }
+}
+
+@media (min-width: 1800px) {
+  .slider-cook {
+    display: block;
   }
 }
 
@@ -124,13 +130,6 @@ body {
   transform: translate(-50%, -50px);
   -ms-transform: translate(-100%, -60%);
   text-align: center;
-}
-
-@media (min-width: 768px) {
-  .middle {
-    transform: translate(-50%, -90%);
-    -ms-transform: translate(-100%, -60%);
-  }
 }
 
 @media (min-width: 1200px) {

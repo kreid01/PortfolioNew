@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import book from "../assets/Library/book.png";
 import twitterThumbnail from "../assets/Twitter/twitter_thumbnail.png";
 import record from "../assets/Records/records.png";
+import taskThumbnail from "../assets/Tasker/thumbnail.png";
+import cookThumbnail from "../assets/Homemade/cookThumbnail.jpeg";
 
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -22,6 +22,7 @@ export const projects = [
       "Jest",
     ],
     image: twitterThumbnail,
+    mainTech: "React / Typescript / ASP .Net 6",
     frontGitLink: "https://github.com/kreid01/TwitterCloneFrontend",
     backGitLink: "https://github.com/kreid01/TwitterCloneBackend",
   },
@@ -42,6 +43,7 @@ export const projects = [
       "Material UI Core",
     ],
     image: book,
+    mainTech: "React / Typescript / ASP .Net 6",
     frontGitLink: "https://github.com/kreid01/LibraryFrontend",
     backGitLink: "https://github.com/kreid01/LibraryBackEnd",
   },
@@ -59,95 +61,116 @@ export const projects = [
       "Auth0",
     ],
     image: record,
+
+    mainTech: "React / ASP .Net 6",
     frontGitLink: "https://github.com/kreid01/KieransRecordsFrontEnd",
     backGitLink: "https://github.com/kreid01/KieransRecordsBackEnd",
   },
   {
     title: "Task Manager",
-    description: "A application to manage your groups, projects and tasks.",
+    description:
+      "An application to manage your groups, projects and tasks, to help you meet deadlines.",
     techStack: [
       "Typescript",
       "React",
-      "Nextjs",
+      "NextJS",
       "Redux",
       "Apollo GraphQL",
       "Material UI Core",
       "Zod",
-      "Expressjs",
+      "ExpressJS",
       "React Query",
       "TypegraphQL",
       "Tailwind",
-      "Jest",
+      "Docker",
+      "Gitlab",
     ],
+    mainTech: "React / Typescript / GraphQL",
     frontGitLink: "https://github.com/kreid01/TaskManagement",
+    image: taskThumbnail,
+  },
+
+  {
+    title: "Homemade",
+    description:
+      "A mobile application that allows users to upload, store, share and manage their recipes.",
+    techStack: [
+      "Typescript",
+      "React Native",
+      "Redux",
+      "Zod",
+      "React Query",
+      "NodeJS",
+      "Reanimated",
+      "Prisma",
+      "ExpressJS",
+      "React Query",
+      "Tailwind",
+      "Docker",
+      "AWS EC2",
+    ],
+    mainTech: "React Native / Typescript / ExpressJS",
+    frontGitLink: "https://github.com/kreid01/Cooker",
+    image: cookThumbnail,
+  },
+  {
+    title: "Rate Your Music",
+    description:
+      "A mobile application that allows users to upload, store, share and manage their recipes.",
+    techStack: [
+      "Typescript",
+      "React Native",
+      "Redux",
+      "Zod",
+      "Urql",
+      "GraphQL",
+      "Nexus",
+      "Prisma",
+      "Selenium",
+      "Cypress",
+      "Reanimated",
+      "ExpressJS",
+      "React Query",
+      "Tailwind",
+      "Docker",
+      "Nginx",
+      "Redis",
+      "AWS RDS",
+      "AWS ECS",
+    ],
     isWip: true,
+    mainTech: "React Native / Typescript / GraphQL",
+    frontGitLink: "https://github.com/kreid01/RateYourMusicServer",
+    image: "https://pbs.twimg.com/media/E_FoJFNVkAIWV1X.png",
   },
 ];
 
 export const Projects = ({ handleProjectClick }) => {
   const projectsDisplayed = projects.map((project) => {
-    const techStackMap = project.techStack.map((skill) => {
-      return (
-        <div className="px-3 py-1 my-1 mx-1 bg-red-500 text-white">{skill}</div>
-      );
-    });
-
     return (
-      <div
-        id="projects"
-        className="md:px-6 lg:px-24 xl:px-64 border-b-[1px] border-red-500 pb-10 md:border-0 md:pb-0"
-      >
-        <div className="grid lg:grid-cols-2 my-16 mx-auto w-[85vw]  lg:w-[70vw] xl:w-[60vw] not-shown ">
-          <div className="mr-8">
-            <div className="flex justify-between">
-              <h1 className="font-semibold text-2xl">{project.title}</h1>
-              <a
-                href={project.frontGitLink}
-                className="bg-slate-700 shadow-md px-1 py-2 ml-1 -mt-1 mb-1 hover:bg-red-500 btn-two"
-              >
-                {" "}
-                <FontAwesomeIcon
-                  icon={faGithub}
-                  className="h-6 mx-2 text-white"
-                />
-              </a>
-            </div>
-            <p>{project.description}</p>
-            <div className="flex flex-wrap my-6 md:my-3 ">{techStackMap}</div>
-            {!project.isWip && (
+      <div id="projects" className="my-5 md:my-0">
+        <div className="not-shown ">
+          <div className="relative container ">
+            <img
+              effect="blur"
+              className="w-[80vw] md:w-[40vw] xl:w-[400px] h-[300px] object-cover object-left  image"
+              src={project.image}
+              alt=""
+            ></img>
+            <div className="middle w-full mr-2">
+              <h2 className="font-bold text-xl project-title">
+                {project.title}
+              </h2>
+              <p className="text-pink-500 project-title">{project.mainTech}</p>
               <button
+                disabled={project.isWip}
                 onClick={() => handleProjectClick(project.title)}
-                className="bg-white px-4 py-2 border-2 border-pink-500 hidden md:block object-left-top lg:hidden hover:text-white hover:bg-pink-500 transition-all duration-500"
+                className="project-button  mt-10 bg-white px-4 py-2 border-2 border-pink-500"
               >
-                LEARN MORE
+                {project.isWip ? "COMING SOON" : "LEARN MORE"}
               </button>
-            )}
+            </div>
           </div>
-          {!project.isWip ? (
-            <div className="relative container md:hidden lg:block">
-              <img
-                effect="blur"
-                className="md:w-[45vw] md:h-[30vh] md:hidden object-cover object-left lg:block  lg:h-80 md:ml-5 -mt-1 image shadow-md rounded-md "
-                src={project.image}
-                alt=""
-              ></img>
-              <div className="middle mr-2">
-                <h2 className="font-bold text-xl project-title">
-                  {project.title}
-                </h2>
-                <button
-                  onClick={() => handleProjectClick(project.title)}
-                  className="project-button  mt-10 bg-white px-4 py-2 border-2 border-pink-500"
-                >
-                  LEARN MORE
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="w-[100%] md:w-80 md:ml-5 mt-7 image shadow-md rounded-md">
-              <div className="text-red-500 underline">Coming Soon</div>
-            </div>
-          )}
         </div>
       </div>
     );
@@ -157,7 +180,9 @@ export const Projects = ({ handleProjectClick }) => {
     <section className="mx-auto bg-gray-200 pt-4">
       <div>
         <h2 className="header">PROJECTS</h2>
-        <div className="py-10">{projectsDisplayed}</div>
+        <div className=" mx-auto py-16 md:py-32 w-[80vw] grid md:grid-cols-2 xl:grid-cols-3 xl:w-[1200px]">
+          {projectsDisplayed}
+        </div>
       </div>
     </section>
   );

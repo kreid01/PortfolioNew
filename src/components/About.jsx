@@ -18,15 +18,14 @@ export const About = () => {
     "Jest",
     "Tailwind",
     "SASS",
+    "Blazor",
     "Git",
     "NodeJS",
     "ExpressJS",
     "Docker",
-    "Gitlab",
-    "React Query",
     "Prisma",
     "React Native",
-    "CICD",
+    "xUnit",
     "AWS",
   ];
 
